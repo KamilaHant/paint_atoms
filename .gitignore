@@ -1,23 +1,160 @@
-# Compiled class file
-*.class
 
-# Log file
-*.log
+package vypocet;
 
-# BlueJ files
-*.ctxt
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.util.Scanner;
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+import javax.imageio.ImageIO;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
+class CircleTest extends JPanel {
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+	private static final int SIZE = 1250 / 5;
+	private int a = SIZE / 2; // nastaveni stredu souradnic
+	private int b = a;
+	private int r = 4 * SIZE / 5;
+	private int n;
+
+	public CircleTest(int n) {
+		super(true);
+		setPreferredSize(new Dimension(SIZE, SIZE));
+		this.n = n;
+	}
+
+	@Override
+	protected void paintComponent(Graphics g) {
+		BufferedImage bi = new BufferedImage(this.getSize().width, this.getSize().height, BufferedImage.TYPE_INT_ARGB);
+		g = bi.createGraphics();
+
+		Scanner sc = new Scanner(System.in);
+		double n1, n2, n3, n4;
+		n1 = sc.nextDouble();
+		n2 = sc.nextDouble();
+		n3 = sc.nextDouble();
+		n4 = sc.nextDouble();
+		double n5 = sc.nextDouble();
+		double n6 = sc.nextDouble();
+		double n7 = sc.nextDouble();
+
+		super.paintComponent(g);
+		Graphics2D g2d = (Graphics2D) g;
+		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		g2d.setColor(Color.black);
+		a = getWidth() / 2;
+		b = getHeight() / 2;
+		int m = Math.min(a, b);
+		g2d.fillOval(a - 6, b - 6, 12, 12); // jadro
+		r = 125 / 5; // polomer velky
+		int r2 = 25 / 5; // polomer kulicek
+		g2d.drawOval(a - r, b - r, 2 * r, 2 * r);
+		g2d.setColor(Color.black);
+		for (int i = 0; i < n1; i++) { // prvni kolo
+			double t = 2 * Math.PI * i / n1;
+			int x = (int) Math.round(a + r * Math.cos(t));
+			int y = (int) Math.round(b + r * Math.sin(t));
+			g2d.fillOval(x - r2, y - r2, 2 * r2, 2 * r2);
+		}
+
+		r = 200 / 5; // polomer velky
+		r2 = 25 / 5; // polomer kulicek
+		g2d.drawOval(a - r, b - r, 2 * r, 2 * r);
+		g2d.setColor(Color.black);
+		for (int i = 0; i < n2; i++) {
+			double t = 2 * Math.PI * i / n2;
+			int x = (int) Math.round(a + r * Math.cos(t + 5));
+			int y = (int) Math.round(b + r * Math.sin(t + 5));
+			g2d.fillOval(x - r2, y - r2, 2 * r2, 2 * r2);
+		}
+
+		r = 275 / 5; // polomer velky
+		r2 = 25 / 5; // polomer kulicek
+		g2d.drawOval(a - r, b - r, 2 * r, 2 * r);
+		g2d.setColor(Color.black);
+		for (int i = 0; i < n3; i++) {
+			double t = 2 * Math.PI * i / n3;
+			int x = (int) Math.round(a + r * Math.cos(t + 5));
+			int y = (int) Math.round(b + r * Math.sin(t + 5));
+			g2d.fillOval(x - r2, y - r2, 2 * r2, 2 * r2);
+		}
+
+		r = 350 / 5; // polomer velky
+		r2 = 25 / 5; // polomer kulicek
+		g2d.drawOval(a - r, b - r, 2 * r, 2 * r);
+		g2d.setColor(Color.black);
+		for (int i = 0; i < n4; i++) {
+			double t = 2 * Math.PI * i / n4;
+			int x = (int) Math.round(a + r * Math.cos(t + 5));
+			int y = (int) Math.round(b + r * Math.sin(t + 5));
+			g2d.fillOval(x - r2, y - r2, 2 * r2, 2 * r2);
+		}
+
+		r = 425 / 5; // polomer velky
+		r2 = 25 / 5; // polomer kulicek
+		g2d.drawOval(a - r, b - r, 2 * r, 2 * r);
+		g2d.setColor(Color.black);
+		for (int i = 0; i < n5; i++) {
+			double t = 2 * Math.PI * i / n5;
+			int x = (int) Math.round(a + r * Math.cos(t + 5));
+			int y = (int) Math.round(b + r * Math.sin(t + 5));
+			g2d.fillOval(x - r2, y - r2, 2 * r2, 2 * r2);
+		}
+
+		r = 500 / 5; // polomer velky
+		r2 = 25 / 5; // polomer kulicek
+		g2d.drawOval(a - r, b - r, 2 * r, 2 * r);
+		g2d.setColor(Color.black);
+		for (int i = 0; i < n6; i++) {
+			double t = 2 * Math.PI * i / n6;
+			int x = (int) Math.round(a + r * Math.cos(t + 5));
+			int y = (int) Math.round(b + r * Math.sin(t + 5));
+			g2d.fillOval(x - r2, y - r2, 2 * r2, 2 * r2);
+		}
+
+		r = 575 / 5; // polomer velky
+		r2 = 25 / 5; // polomer kulicek
+		g2d.drawOval(a - r, b - r, 2 * r, 2 * r);
+		g2d.setColor(Color.black);
+		for (int i = 0; i < n7; i++) {
+			double t = 2 * Math.PI * i / n7;
+			int x = (int) Math.round(a + r * Math.cos(t + 5));
+			int y = (int) Math.round(b + r * Math.sin(t + 5));
+			g2d.fillOval(x - r2, y - r2, 2 * r2, 2 * r2);
+		}
+
+		g2d.dispose();
+		try {
+			ImageIO.write(bi, "png", new File("lr.png"));
+		} catch (Exception e) {
+		}
+
+	}
+
+	private static void create() {
+		JFrame f = new JFrame();
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.add(new CircleTest(2)); // pocet kulicek
+		f.pack();
+		f.setVisible(true);
+
+	}
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+
+			@Override
+			public void run() {
+				create();
+			}
+		});
+
+	}
+
+}
